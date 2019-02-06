@@ -6,6 +6,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.isa.myapplication.sort.InsertSort;
+
 public class SecondActivity extends AppCompatActivity {
 
     private final static String TAG = "Second";
@@ -27,6 +29,26 @@ public class SecondActivity extends AppCompatActivity {
         Log.e(TAG, "hashcode bl: " + blackCat.hashCode() + ", wh: " + whiteCat.hashCode());
         if (blackCat.equals(whiteCat)) {
             Log.e(TAG, "equal!");
+        }
+
+        int[] arr = {3, 19, 31, 33, 58, 6, 9, 1};
+
+        // test sort
+        InsertSort insertSort = new InsertSort();
+        insertSort.sort(arr);
+    }
+
+    private static class WhatIsWrong implements Runnable {
+
+        private static WhatIsWrong instance = new WhatIsWrong();
+
+        static int c = 0;
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 10000; i++) {
+                i++;
+            }
         }
     }
 
